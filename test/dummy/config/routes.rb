@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   mount Lina::Engine => "/lina"
 
-  resources :posts, only: [:index]
+  resources :posts, only: [:index] do
+    resources :labels, only: [:index]
+  end
   resources :desks, only: [:index]
   root 'posts#index'
 end
