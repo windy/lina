@@ -1,7 +1,11 @@
 class PostsController < Lina::ApplicationController
   define_action :index, {
-    hello: 'world'
+    name: 'hello world',
+    params: {
+    },
+    return: {
+    }
   } do
-    render json: { name: 'post name' }
+    render json: { name: 'post name1' }
   end
 end
