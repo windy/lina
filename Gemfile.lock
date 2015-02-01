@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     lina (0.0.1)
+      json-schema
       rails (~> 4.1.8)
 
 GEM
@@ -33,6 +34,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     byebug (3.5.1)
@@ -46,6 +48,8 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     json (1.8.2)
+    json-schema (2.5.0)
+      addressable (~> 2.3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)

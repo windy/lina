@@ -6,7 +6,9 @@ module Lina
       schema = self.class.action_schema(method_name)
       if block
         logger.info("schema: #{schema}")
+        JSON::Validator.validate!(schema[:params], params, strict: true)
         ret = self.instance_exec(*args, &block)
+        JSON::Validator.validate!(schema[:return], ret[0], strict: true)
         default_render unless performed?
         ret
       else
@@ -15,9 +17,12 @@ module Lina
     end
 
     class <<self
-      @@actions = {}
+      _actions = {}
       def define_action(name, schema={}, &block)
-        @@actions[name] = { schema: schema, block: block }
+        if ! JSON::Validator.validate(Lina::Schema.argument, schema, strict: true)
+          raise "API 声明有错误"
+        end
+        _actions[name] = { schema: schema, block: block }
       end
 
       def action_methods
@@ -32,20 +37,24 @@ module Lina
 
       # 所有支持的 API 列表
       def api_actions
-        @@actions.keys
+        _actions.keys
       end
 
       # 返回所有实例
       def api_action_instances
-        @@actions
+        _actions
       end
 
       def action_schema(name)
-        @@actions[name.to_sym] && @@actions[name.to_sym][:schema]
+        _actions[name.to_sym] && _actions[name.to_sym][:schema]
       end
 
       def action_block(name)
-        @@actions[name.to_sym] && @@actions[name.to_sym][:block]
+        _actions[name.to_sym] && _actions[name.to_sym][:block]
+      end
+
+      def _actions
+        @actions ||= {}
       end
     end
   end
