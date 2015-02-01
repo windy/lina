@@ -3,11 +3,14 @@ require_dependency "lina/base_controller"
 module Lina
   class SchemaController < BaseController
     def index
-      Rails.application.eager_load!
-      @trees = Lina::ApplicationController.subclasses
-      controller = ::Kernel.const_get(params[:schema_controller].to_s.camelize + 'Controller')
+      if ! controller = user_api_controllers.find { |c| c == params[:schema_controller] }
+        raise "Controller #{params[:schema_controller]} 无法找到"
+      end
+
       action = params[:schema_action].to_sym
-      @schema = @trees.find { |i| i == controller}._actions[action]
+      if ! @schema = str2controller(controller)._actions[action]
+        raise "Action #{action} 无法找到"
+      end
     end
   end
 end
