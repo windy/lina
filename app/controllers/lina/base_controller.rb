@@ -1,5 +1,6 @@
 module Lina
   class BaseController < ActionController::Base
+    layout 'lina/application'
 
     private
 
