@@ -6,5 +6,6 @@ class LabelsController < PostsController
     return: {
     }
   } do
+    render json: []
   end
 end
