@@ -8,13 +8,14 @@ module Lina
 
       # 过滤出所有 API 相关的路由
       api_routes = []
-      @tree = user_api_controllers
+      @user_api_controllers = user_api_controllers
       @api_controllors = all_subclasses(Lina::ApplicationController, false)
-      @tree.each do |controller|
+      @user_api_controllers.each do |controller|
         api_routes += inspector.send(:filter_routes, controller)
       end
 
       @routes = inspector.send(:collect_routes, api_routes)
+      @tree = Lina::Tree.parse(@routes)
     end
   end
 end

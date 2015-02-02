@@ -5,51 +5,19 @@
     <div id="tree">
     </div>
     <script type="text/javascript">
-      var tree = [
-        {
-          text: "Parent 1",
-          nodes: [
-            {
-              text: "Child 1",
-              nodes: [
-                {
-                  text: "Grandchild 1"
-                },
-                {
-                  text: "Grandchild 2"
-                }
-              ]
-            },
-            {
-              text: "Child 2"
-            }
-          ]
-        },
-        {
-          text: "Parent 2"
-        },
-        {
-          text: "Parent 3"
-        },
-        {
-          text: "Parent 4"
-        },
-        {
-          text: "Parent 5"
-        }
-      ];
+      var tree = <%= raw @tree.to_json %>;
       $('#tree').treeview({ data: tree });
     </script>
 	</div>
 	<div class="col-md-9">
-		<h1>hello apidoc is launched!</h1>
-		<ul>
-		  <% @api_controllors.each do |t| %>
-		    <li><%= t %></li>
-		    <ul>
-		      <li><%= debug t._actions %></li>
-		    </ul>
-		  <% end %>
-		</ul>
+    <h1>hello apidoc is launched!</h1>
+    <ul>
+      <% @api_controllors.each do |t|%>
+        <li><%= t %></li>
+        <ul>
+          <li><%= debug t._actions %></li>
+        </ul>
+      <% end%>
+    </ul>
 	</div>
 </div>
