@@ -17,6 +17,7 @@ module Lina
     def _to_tree(root)
       ret = {}
       ret[:text] = root.path
+      ret[:value] = root.value
       if ! root.children.empty?
         ret[:nodes] = root.children.collect { |child| _to_tree(child) }
       end
