@@ -4,6 +4,7 @@ module Lina
       {
         "type" => "object",
         "properties" => {
+          'required' => [ 'name', 'params', 'return'],
           "name" => {"type" => "string", "description" => "name" },
           "params" => {
             "type" => "object",

@@ -19,7 +19,7 @@ module Lina
     class <<self
       _actions = {}
       def define_action(name, schema={}, &block)
-        if ! JSON::Validator.validate(Lina::Schema.argument, schema, strict: true)
+        if ! JSON::Validator.validate(Lina::Schema.argument, schema)
           raise "API 声明有错误"
         end
         _actions[name] = { schema: schema, block: block }

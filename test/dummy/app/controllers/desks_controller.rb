@@ -1,10 +1,12 @@
 class DesksController < Lina::ApplicationController
   define_action :index, {
     name: '显示所有桌子',
+    description: '显示所有桌子的描述',
     params: {
       required: [ 'id' ],
       id: {
         type: 'string',
+        description: '桌子ID',
       }
     },
     return: {

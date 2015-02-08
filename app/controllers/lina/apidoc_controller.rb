@@ -15,6 +15,11 @@ module Lina
       end
 
       @routes = inspector.send(:collect_routes, api_routes)
+      # add schema info to route
+      @routes.each do |route|
+        controller, action = route[:reqs].split('#')
+        route[:schema] = str2controller(controller).action_schema(action)
+      end
       @tree = Lina::Tree.parse(@routes)
     end
   end
