@@ -48,6 +48,7 @@ module Lina
       end
       paths = paths.dup
       path = paths.shift
+      path = path.gsub('(.:format)', '')
 
       endpoint = tree.find_child(path)
       if endpoint

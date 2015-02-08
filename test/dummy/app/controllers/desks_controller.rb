@@ -7,6 +7,10 @@ class DesksController < Lina::ApplicationController
       id: {
         type: 'string',
         description: '桌子ID',
+      },
+      name: {
+        type: 'string',
+        description: '名称',
       }
     },
     return: {
