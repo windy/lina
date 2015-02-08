@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:index] do
     resources :labels, only: [:index]
   end
-  resources :desks, only: [:index]
+  resources :desks, only: [:index, :show]
   root 'posts#index'
 end
