@@ -13,4 +13,9 @@ class DesksControllerTest < ActionController::TestCase
   test "#update return validate failed" do
     assert_raise(JSON::Schema::ValidationError) { put :update, id: 1 }
   end
+
+  test "default value" do
+    skip "next"
+  end
+
 end
