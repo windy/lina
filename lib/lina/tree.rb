@@ -18,7 +18,7 @@ module Lina
     def _to_tree(root)
       ret = {}
       ret[:text] = root.path
-      ret[:value] = root.value
+      ret[:values] = root.values
       if ! root.children.empty?
         ret[:nodes] = root.children.collect { |child| _to_tree(child) }
       end
@@ -46,7 +46,7 @@ module Lina
     def paths_insert_tree(paths, tree, route)
       if paths.empty?
         @size += 1
-        tree.value = route
+        tree.add_value(route)
         return
       end
       paths = paths.dup
@@ -65,13 +65,16 @@ module Lina
   end
 
   class TreeNode # :nodoc:
-    attr_reader :path, :children, :parent, :value
-    attr_writer :value
+    attr_reader :path, :children, :parent, :values
     def initialize(path, parent =nil)
       @path = path
       @children = []
       @parent = parent
-      @value = nil
+      @values = []
+    end
+
+    def add_value(value)
+      @values << value
     end
 
     def real_path

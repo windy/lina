@@ -41,4 +41,22 @@ class DesksController < Lina::ApplicationController
   } do
     render json: { name: params[:id] }
   end
+
+  define_action :update, {
+    name: '更新指定的桌子',
+    params: {
+      required: [ 'id' ],
+      id: {
+        type: 'integer',
+        max: 10,
+      },
+      name: {
+        type: 'string',
+      }
+    },
+    return: {
+    }
+  } do
+    render json: { }
+  end
 end
