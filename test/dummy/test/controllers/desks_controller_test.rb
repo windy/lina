@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class DesksControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "api schema validate" do
+    skip "next time"
+  end
 end
