@@ -15,5 +15,12 @@ module Lina
         }
       }
     end
+
+    def self.params_validator(params)
+      {
+        type: 'object',
+        properties: params
+      }
+    end
   end
 end

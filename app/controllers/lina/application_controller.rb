@@ -6,9 +6,9 @@ module Lina
       schema = self.class.action_schema(method_name)
       if block
         logger.info("schema: #{schema}")
-        JSON::Validator.validate!(schema[:params], params, strict: true)
+        JSON::Validator.validate!(schema[:params], params)
         ret = self.instance_exec(*args, &block)
-        JSON::Validator.validate!(schema[:return], ret[0], strict: true)
+        JSON::Validator.validate!(schema[:return], ret[0])
         default_render unless performed?
         ret
       else
@@ -26,7 +26,7 @@ module Lina
       end
 
       def action_methods
-        @@action_methods ||= begin
+        @@action_methods = begin
           methods = (api_actions + public_instance_methods(true) -
             internal_methods +
             public_instance_methods(false)).uniq.map { |x| x.to_s } -

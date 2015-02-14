@@ -52,4 +52,15 @@ class Lina::ApidocControllerTest < ActionController::TestCase
     get :index, { use_route: :lina }
     assert_equal 8, assigns(:_tree).size
   end
+
+  test "more controllers" do
+    Rails.application.routes.draw do
+      resources :crud
+      resources :ones, only: [:index]
+    end
+
+    Lina::BaseController.any_instance.stubs(:all_subclasses).returns([ 'crud', 'ones' ])
+    get :index, { use_route: :lina }
+    assert_equal 8 + 1, assigns(:_tree).size
+  end
 end
