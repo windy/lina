@@ -10,7 +10,7 @@ module Lina
     # eg: [ 'posts', 'desks' ]
     def user_api_controllers
       Rails.application.eager_load!
-      @user_api_controllers ||= all_subclasses(Lina::ApplicationController)
+      all_subclasses(Lina::ApplicationController, true)
     end
 
     def str2controller(klass_str)

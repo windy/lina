@@ -3,6 +3,7 @@ module Lina
     attr_reader :root
     def initialize(routes)
       @routes = routes
+      @size = 0
       @root = paths_to_tree
     end
 
@@ -28,7 +29,8 @@ module Lina
       self.new(routes).to_tree
     end
 
-    def dump
+    def size
+      @size
     end
 
     def paths_to_tree
@@ -43,6 +45,7 @@ module Lina
 
     def paths_insert_tree(paths, tree, route)
       if paths.empty?
+        @size += 1
         tree.value = route
         return
       end
