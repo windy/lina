@@ -5,10 +5,9 @@ module Lina
       block = self.class.action_block(method_name)
       schema = self.class.action_schema(method_name)
       if block
-        logger.info("schema: #{schema}")
-        JSON::Validator.validate!(schema[:params], params)
+        Lina::Validator.params_check(schema[:params], params)
         ret = self.instance_exec(*args, &block)
-        JSON::Validator.validate!(schema[:return], ret && ret[0])
+        Lina::Validator.return_check(schema[:return], ret && ret[0])
         default_render unless performed?
         ret
       else

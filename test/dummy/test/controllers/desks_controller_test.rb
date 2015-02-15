@@ -7,11 +7,11 @@ class DesksControllerTest < ActionController::TestCase
   end
 
   test "#show validate failed" do
-    assert_raise(JSON::Schema::ValidationError) { get :show, id: 1, filter_name: 'x' * 6 }
+    assert_raise(Lina::ParamsCheckError) { get :show, id: 1, filter_name: 'x' * 6 }
   end
 
   test "#update return validate failed" do
-    assert_raise(JSON::Schema::ValidationError) { put :update, id: 1 }
+    assert_raise(Lina::ReturnCheckError) { put :update, id: 1 }
   end
 
   test "default value" do

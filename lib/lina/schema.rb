@@ -2,15 +2,21 @@ module Lina
   class Schema
     def self.argument
       {
-        "type" => "object",
-        "properties" => {
-          'required' => [ 'name', 'params', 'return'],
-          "name" => {"type" => "string", "description" => "name" },
-          "params" => {
-            "type" => "object",
+        type: "object",
+        required: ['name', 'params', 'return'],
+        properties: {
+          name: {
+            type: "string",
+            description: "api name"
           },
-          "return" => {
-            "type" => "object",
+          description: {
+            type: 'string',
+          },
+          params: {
+            type: "object",
+          },
+          return: {
+            type: "object",
           }
         }
       }
@@ -23,4 +29,25 @@ module Lina
       }
     end
   end
+
+  class Validator
+    def self.params_check(schema, data)
+      return unless Lina.params_check
+      begin
+        JSON::Validator.validate!(schema, data)
+      rescue JSON::Schema::ValidationError => e
+        raise Lina::ParamsCheckError, e.message
+      end
+    end
+
+    def self.return_check(schema, data)
+      return unless Lina.return_check
+      begin
+        JSON::Validator.validate!(schema, data)
+      rescue JSON::Schema::ValidationError => e
+        raise Lina::ReturnCheckError, e.message
+      end
+    end
+  end # end of class Validator
+
 end
