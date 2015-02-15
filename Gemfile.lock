@@ -3,9 +3,10 @@ PATH
   specs:
     lina (0.0.1)
       bootstrap-sass
+      jbuilder
       jquery-rails
       json-schema
-      rails (~> 4.1.8)
+      rails (>= 4.0.0)
 
 GEM
   remote: http://ruby.taobao.org/
@@ -51,6 +52,9 @@ GEM
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jbuilder (2.2.7)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
