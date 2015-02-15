@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'pp'
 
 module Lina
   class TreeTest < ActiveSupport::TestCase
@@ -10,8 +9,7 @@ module Lina
         { path: '/posts', verb: 'GET' },
       ]
       tree = Lina::Tree.new(routes)
-      #pp tree.paths_to_tree
-      pp tree.to_tree
+      assert_equal 3, tree.size
     end
   end
 end
