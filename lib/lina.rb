@@ -7,6 +7,7 @@ require 'jquery-rails'
 require 'bootstrap-sass'
 
 require 'lina/rails/router'
+require 'lina/generators/install_generator'
 
 module Lina
 end
