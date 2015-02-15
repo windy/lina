@@ -16,7 +16,7 @@ module Lina
         end
       end
 
-      #hook_for :template_engine, :test_framework, :helper, :assets
+      hook_for :jbuilder, in: :rails, default: true
 
       private
 
