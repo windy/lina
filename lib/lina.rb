@@ -6,5 +6,7 @@ require 'lina/schema'
 require 'jquery-rails'
 require 'bootstrap-sass'
 
+require 'lina/rails/router'
+
 module Lina
 end
