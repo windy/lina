@@ -8,12 +8,19 @@ module Lina
         logger.info("schema: #{schema}")
         JSON::Validator.validate!(schema[:params], params)
         ret = self.instance_exec(*args, &block)
-        JSON::Validator.validate!(schema[:return], ret[0])
+        JSON::Validator.validate!(schema[:return], ret && ret[0])
         default_render unless performed?
         ret
       else
         super
       end
+    end
+
+    before_filter :default_format_json
+
+    private
+    def default_format_json
+      request.format = "json" unless params[:format]
     end
 
     class <<self
