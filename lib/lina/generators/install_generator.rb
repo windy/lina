@@ -1,5 +1,3 @@
-require 'rails/generators'
-
 module Lina
   module Generators
     class InstallGenerator < Rails::Generators::Base
