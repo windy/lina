@@ -1,6 +1,6 @@
-# Lina
+![lina logo](lina.png)
 
-Rails 开发者零成本上手的 Restful API 框架, 并且依然强大.
+Rails 开发者零成本上手的 Restful API 框架.
 
 Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 API 框架, 通过定制 `ActionController` 实现了自动生成文档, 自动校验入口, 自动校验返回值参数.
 
@@ -22,15 +22,15 @@ $ rails g lina:api posts index
 
 [![Build Status](https://travis-ci.org/windy/lina.png?branch=master)](https://travis-ci.org/windy/lina)
 
-# 功能特性
+## 功能特性
 
-## 参数校验
+### 参数校验
 
-## API 文档
+### API 文档
 
-#  使用方法
+##  使用方法
 
-## 控制器
+### 控制器
 
 ```ruby
 class UsersController < Lina::ApplicationController
@@ -60,11 +60,11 @@ class UsersController < Lina::ApplicationController
 end
 ```
 
-## 路由与版本
+### 路由与版本
 
-## 认证
+### 认证
 
-## 定制 APIDOC
+### 定制 APIDOC
 
 ## TODO
 
