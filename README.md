@@ -1,5 +1,7 @@
 # Lina ( 0.0.1 )
 
+[![Build Status](https://travis-ci.org/windy/lina.png?branch=master)](https://travis-ci.org/windy/lina)
+
 一个快速的, 迷人的, 自文档化的 API 开发工具, 它直接基于 Ruby on Rails 实现.
 
 如果你是 Rails 熟手, 对于 Lina, 基本上是零学习成本.
