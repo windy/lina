@@ -25,27 +25,33 @@ class Lina::ApidocControllerTest < ActionController::TestCase
     end
   end
 
-  def teardown
+  setup do
+    @routes = Lina::Engine.routes
+  end
+
+  teardown do
     Rails.application.reload_routes!
   end
 
   test "only one controller" do
     Rails.application.routes.draw do
       resources :ones, only: [:index]
+      mount Lina::Engine => '/lina'
     end
 
     Lina::BaseController.any_instance.stubs(:all_subclasses).returns([ 'ones' ])
-    get :index, { use_route: :lina }
+    get :index
     assert_equal 1, assigns(:_tree).size
   end
 
   test "CRUD controller" do
     Rails.application.routes.draw do
       resources :crud
+      mount Lina::Engine => '/lina'
     end
 
     Lina::BaseController.any_instance.stubs(:all_subclasses).returns([ 'crud' ])
-    get :index, { use_route: :lina }
+    get :index
     assert_equal 8, assigns(:_tree).size
   end
 
@@ -53,10 +59,11 @@ class Lina::ApidocControllerTest < ActionController::TestCase
     Rails.application.routes.draw do
       resources :crud
       resources :ones, only: [:index]
+      mount Lina::Engine => '/lina'
     end
 
     Lina::BaseController.any_instance.stubs(:all_subclasses).returns([ 'crud', 'ones' ])
-    get :index, { use_route: :lina }
+    get :index
     assert_equal 8 + 1, assigns(:_tree).size
   end
 end
