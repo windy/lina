@@ -6,3 +6,5 @@ else
 end
 
 gemspec
+
+gem "appraisal"

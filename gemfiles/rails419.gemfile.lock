@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ../
   specs:
     lina (0.0.1)
       bootstrap-sass
@@ -37,14 +37,18 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    addressable (2.3.6)
+    addressable (2.3.7)
     appraisal (1.0.2)
       bundler
       rake
       thor (>= 0.14.0)
     arel (5.0.1.20140414130214)
-    bootstrap-sass (3.3.1.0)
-      sass (~> 3.2)
+    autoprefixer-rails (5.1.5)
+      execjs
+      json
+    bootstrap-sass (3.3.3)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -54,6 +58,7 @@ GEM
     columnize (0.9.0)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
+    execjs (2.3.0)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.7)
@@ -78,10 +83,10 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (2.0.0)
+    pry-byebug (3.0.1)
       byebug (~> 3.4)
       pry (~> 0.10)
-    pry-rails (0.3.2)
+    pry-rails (0.3.3)
       pry (>= 0.9.10)
     rack (1.5.2)
     rack-test (0.6.3)
@@ -102,7 +107,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    sass (3.2.19)
+    sass (3.4.12)
     slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -129,4 +134,5 @@ DEPENDENCIES
   mocha
   pry-byebug
   pry-rails
+  rails (~> 4.1.9)
   sqlite3
