@@ -9,4 +9,3 @@ require 'bootstrap-sass'
 require 'jbuilder'
 
 require 'lina/rails/router'
-require 'lina/generators/generators'

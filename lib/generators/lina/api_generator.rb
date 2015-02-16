@@ -4,7 +4,7 @@ module Lina
       argument :actions, type: :array, default: [], banner: "action action"
       check_class_collision suffix: "Controller"
 
-      source_root File.expand_path("../templates", __FILE__)
+      source_root File.expand_path("../../templates", __FILE__)
 
       def create_controller_files
         template 'controller.rb', File.join('app/controllers', class_path, "#{file_name}_controller.rb")
@@ -16,7 +16,8 @@ module Lina
         end
       end
 
-      hook_for :jbuilder, in: :rails, default: true
+      hook_for :test_framework, as: :controller
+      hook_for :jbuilder
 
       private
 
