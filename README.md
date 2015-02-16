@@ -1,4 +1,4 @@
-![lina logo](lina.png)
+![lina logo](lina-logo.png)
 
 Rails 开发者零成本上手的 Restful API 框架.
 
