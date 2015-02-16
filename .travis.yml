@@ -1,0 +1,19 @@
+language: ruby
+
+bundler_args: '-j6' # avoid travis-ci to set deployment mode by default, and use parallel bundlerr
+
+#before_script: bundle install
+
+script: bundle exec rake test
+
+before_install:
+  - grep -i processor /proc/cpuinfo | wc -l
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - gem install bundler --pre
+  - bundler -v
+
+rvm: 2.0.0
+
+gemfile:
+  - gemfiles/rails42.gemfile
+  - gemfiles/rails41.gemfile
