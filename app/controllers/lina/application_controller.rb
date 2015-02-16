@@ -7,8 +7,8 @@ module Lina
       if block
         Lina::Validator.params_check(schema[:params], params)
         ret = self.instance_exec(*args, &block)
-        Lina::Validator.return_check(schema[:return], ret && ret[0])
         default_render unless performed?
+        Lina::Validator.return_check(schema[:return], response.body)
         ret
       else
         super

@@ -3,7 +3,7 @@ require 'test_helper'
 class DesksControllerTest < ActionController::TestCase
   test "#index" do
     get :index
-    assert_equal [], JSON.parse(response.body)
+    assert_equal [ {'name'=> 'name1'}, {'name'=> 'name2'} ], JSON.parse(response.body)
   end
 
   test "#show validate failed" do

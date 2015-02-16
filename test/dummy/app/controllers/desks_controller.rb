@@ -6,9 +6,21 @@ class DesksController < Lina::ApplicationController
     },
     return: {
       type: 'array',
+      items: {
+        type: 'object',
+        required: [ 'name' ],
+        properties: {
+          name: {
+            type: 'string',
+          }
+        }
+      }
     }
   } do
-    render json: []
+    @desks = [
+      { name: 'name1' },
+      { name: 'name2' },
+    ]
   end
 
   define_action :show, {
