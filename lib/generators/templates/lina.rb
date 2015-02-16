@@ -1,5 +1,8 @@
 # lina config file
 Lina.setup do |config|
+  #是否自动生成 views
+  #config.generate_views = true
+
   #是否开启参数校验
   #config.params_check = true
 

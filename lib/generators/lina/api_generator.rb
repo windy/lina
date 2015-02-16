@@ -17,7 +17,9 @@ module Lina
       end
 
       hook_for :test_framework, as: :controller
-      hook_for :jbuilder
+      if Lina.generate_views
+        hook_for :jbuilder, in: :rails, default: true
+      end
 
       private
 

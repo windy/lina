@@ -7,6 +7,9 @@ module Lina
     yield self
   end
 
+  mattr_accessor :generate_views
+  @@generate_views = true
+
   mattr_accessor :params_check
   @@params_check = true
 
