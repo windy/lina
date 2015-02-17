@@ -26,6 +26,8 @@ $ rails g lina:api posts index
 
 ### APIDOC
 
+TODO
+
 ### 控制器
 
 继承 `Lina::ApplicationController`, 使用 `define_action(action_name, api_spec, &block)` 定义 API.
