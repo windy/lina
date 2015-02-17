@@ -7,4 +7,7 @@ module Lina
 
   class ReturnCheckError < Error #:nodoc:
   end
+
+  class ApiSpecError < Error #:nodoc:
+  end
 end

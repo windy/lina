@@ -1,5 +1,5 @@
+require 'lina/version'
 require 'lina/error'
-require 'lina/utils'
 require 'lina/tree'
 require "lina/engine"
 require 'json-schema'

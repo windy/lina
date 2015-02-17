@@ -48,6 +48,14 @@ module Lina
         raise Lina::ReturnCheckError, e.message
       end
     end
+
+    def self.api_spec_check(schema, data)
+      begin
+        JSON::Validator.validate!(schema, data)
+      rescue JSON::Schema::ValidationError => e
+        raise Lina::ApiSpecError, e.message
+      end
+    end
   end # end of class Validator
 
 end
