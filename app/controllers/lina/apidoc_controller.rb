@@ -21,6 +21,10 @@ module Lina
       end
       @_tree = Lina::Tree.new(@routes)
       @tree = @_tree.to_tree
+      respond_to do |format|
+        format.html
+        format.json { render json: @tree }
+      end
     end
   end
 end
