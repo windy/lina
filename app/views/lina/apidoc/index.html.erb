@@ -12,7 +12,7 @@
           <h4 class="panel-title name">{{ api.schema.name }}</h4>
         </div>
         <div class="panel-body">
-          <p class='path'>{{ api.path }}</p>
+          <p class='path'> {{ api.verb }} {{ api.path }}</p>
           <p class='description'>{{ api.schema.description }}</p>
           <h4>arguments: </h4>
           <table class='table'>
@@ -25,7 +25,9 @@
             </thead>
             <tbody>
               <tr ng-repeat='(key, value) in api.schema.params.properties'>
-                <td>{{ key }}</td>
+                <td><span>{{ key }}
+                  <span class="label label-default" ng-hide='isRequired(api.schema.params, key)'>optional</span>
+                </td>
                 <td>{{ value.type }}</td>
                 <td>{{ value.description }}</td>
               </tr>

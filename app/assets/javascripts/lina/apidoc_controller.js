@@ -11,4 +11,8 @@ app.controller('ApidocController', [ '$scope', '$http', function($scope, $http){
       $scope.my_data = res.data;
     });
   }
+
+  $scope.isRequired = function(params, name){
+    return params.required.indexOf(name) != -1
+  }
 }])
