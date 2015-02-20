@@ -1,6 +1,6 @@
-<div class="row" style='margin-left: 0; margin-right: 0' ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
+<div class="row apidoc-page" ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
 
-	<div class="col-md-3">
+	<div class="col-md-3 api-left-tree">
 		<h4>Apidoc</h4>
     <abn-tree tree-data="my_data" tree-control="my_tree" on-select='showApi(branch)'></abn-tree>
 	</div>
