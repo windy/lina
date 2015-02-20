@@ -18,6 +18,7 @@ module Lina
       @routes.each do |route|
         controller, action = route[:reqs].split('#')
         route[:schema] = str2controller(controller).action_schema(action)
+        route[:path].gsub!('(.:format)', '')
       end
       @_tree = Lina::Tree.new(@routes)
       @tree = @_tree.to_tree
