@@ -35,13 +35,16 @@ class DesksController < Lina::ApplicationController
         filter_name: {
           type: 'string',
           maxLength: 5,
+          minLength: 1,
         }
       },
     },
     return: {
       required: [ 'name' ],
-      name: {
-        type: 'string'
+      properties: {
+        name: {
+          type: 'string'
+        }
       }
     }
   } do
@@ -62,8 +65,10 @@ class DesksController < Lina::ApplicationController
     return: {
       type: 'object',
       required: [ 'name' ],
-      name: {
-        type: 'string'
+      properties: {
+        name: {
+          type: 'string'
+        }
       }
     }
   } do

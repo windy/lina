@@ -8,5 +8,6 @@ require 'jquery-rails'
 require 'bootstrap-sass'
 require 'jbuilder'
 require 'angularjs-rails'
+require 'underscore-rails'
 
 require 'lina/rails/router'

@@ -13,9 +13,11 @@ class PostsController < Lina::ApplicationController
     name: 'show a post by ID',
     params: {
       required: [ :id ],
-      id: {
-        type: 'integer'
-      },
+      properties: {
+        id: {
+          type: 'integer'
+        },
+      }
     },
     return: {
     }
@@ -27,9 +29,11 @@ class PostsController < Lina::ApplicationController
     name: 'update the post by ID',
     params: {
       required: [ :id ],
-      id: {
-        type: 'integer'
-      },
+      properties: {
+        id: {
+          type: 'integer'
+        },
+      }
     },
     return: {
     }

@@ -1,7 +1,7 @@
-<div class="row" ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
+<div class="row" style='margin-left: 0; margin-right: 0' ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
 
 	<div class="col-md-3">
-		<h2>Routes:</h2>
+		<h4>Apidoc</h4>
     <abn-tree tree-data="my_data" tree-control="my_tree" on-select='showApi(branch)'></abn-tree>
 	</div>
 	<div class="col-md-9 api-contents">
@@ -18,8 +18,9 @@
           <table class='table'>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Type</th>
+                <th width='20%'>Name</th>
+                <th width='20%'>Type</th>
+                <th width='25%'>More Info</th>
                 <th>Description</th>
               </tr>
             </thead>
@@ -29,6 +30,7 @@
                   <span class="label label-default" ng-hide='isRequired(api.schema.params, key)'>optional</span>
                 </td>
                 <td>{{ value.type }}</td>
+                <td class='more-info'>{{ moreInfo(value) }}</td>
                 <td>{{ value.description }}</td>
               </tr>
             </tbody>
