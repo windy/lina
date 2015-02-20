@@ -1,0 +1,22 @@
+.apidoc-page {
+  height: 100%;
+  margin-right: 0;
+  margin-left: 0;
+
+  .more-info {
+    white-space: pre;
+  }
+
+  .api-left-tree {
+    height: 100%;
+    overflow-y: auto;
+    background: #FAFAFA;
+    border-right: 1px solid #eee;
+  }
+
+  .api-contents {
+    padding-top: 10px;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
