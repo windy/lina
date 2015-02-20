@@ -1,28 +1,68 @@
-<div class="row">
+<div class="row apidoc-page" ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
 
-	<div class="col-md-3">
-		<h2>Routes:</h2>
-    <div id="tree">
-    </div>
-    <script type="text/javascript">
-      var tree = <%= raw @tree.to_json %>;
-      $('#tree').treeview({ data: tree });
-    </script>
+	<div class="col-md-3 api-left-tree">
+		<h4 class='apidoc-title'>APIDOC</h4>
+    <abn-tree tree-data="my_data" tree-control="my_tree" on-select='showApi(branch)'></abn-tree>
 	</div>
-	<div class="col-md-9 api-content">
-    <h1 id='name'>API NAME</h1>
-    <p id='path'>API PATH</h1>
-    <p id='description'></p>
-    <h2>arguments: </h2>
-    <table id='arguments' class='table'>
-    	<thead>
-    		<tr>
-    			<th>Name</th>
-    			<th>Type</th>
-    			<th>Description</th>
-    		</tr>
-    	</thead>
-      <tbody></tbody>
-    </table>
+	<div class="col-md-9 api-contents">
+    <ul class='list-unstyled'>
+      <li ng-repeat='api in currentApi'>
+      <div class='path'>
+        <span class='path-verb'> {{ api.verb }} </span>
+        <span class='path-path'> {{ api.path }} </span>
+      </div>
+        <div class="name">{{ api.schema.name }}</div>
+        <p class='description'>{{ api.schema.description }}</p>
+        <h4 class='parameters-title'>Parameter</h4>
+        <div class="table-wrapper">
+        	<table class='table'>
+        	  <thead>
+        	    <tr>
+        	      <th width='20%'>Name</th>
+        	      <th width='20%'>Type</th>
+        	      <th width='25%'>More Info</th>
+        	      <th>Description</th>
+        	    </tr>
+        	  </thead>
+        	  <tbody>
+        	    <tr ng-repeat='(key, value) in api.schema.params.properties'>
+        	      <td><span>{{ key }}
+        	        <span class="label label-primary" ng-show='isRequired(api.schema.params, key)'>must</span>
+        	        <span class="label label-default" ng-hide='isRequired(api.schema.params, key)'>optional</span>
+        	      </td>
+        	      <td>{{ value.type }}</td>
+        	      <td class='more-info'>{{ moreInfo(value) }}</td>
+        	      <td>{{ value.description }}</td>
+        	    </tr>
+        	  </tbody>
+          </table>
+        </div><!-- .table-wrapper -->
+
+        <h4 class='return-title'>Return</h4>
+        <div class="table-wrapper">
+        	<table class='table'>
+        	  <thead>
+        	    <tr>
+        	      <th width='20%'>Name</th>
+        	      <th width='20%'>Type</th>
+        	      <th width='25%'>More Info</th>
+        	      <th>Description</th>
+        	    </tr>
+        	  </thead>
+        	  <tbody>
+        	    <tr ng-repeat='(key, value) in api.schema.return.properties'>
+        	      <td><span>{{ key }}
+        	        <span class="label label-primary" ng-show='isRequired(api.schema.return, key)'>must</span>
+        	        <span class="label label-default" ng-hide='isRequired(api.schema.return, key)'>optional</span>
+        	      </td>
+        	      <td>{{ value.type }}</td>
+        	      <td class='more-info'>{{ moreInfo(value) }}</td>
+        	      <td>{{ value.description }}</td>
+        	    </tr>
+        	  </tbody>
+        	</table>
+        </div><!-- .table-wrapper -->
+      </li>
+    </ul>
 	</div>
 </div>

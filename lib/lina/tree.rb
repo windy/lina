@@ -17,10 +17,10 @@ module Lina
 
     def _to_tree(root)
       ret = {}
-      ret[:text] = root.path
+      ret[:label] = root.path
       ret[:values] = root.values
       if ! root.children.empty?
-        ret[:nodes] = root.children.collect { |child| _to_tree(child) }
+        ret[:children] = root.children.collect { |child| _to_tree(child) }
       end
       ret
     end

@@ -7,5 +7,8 @@ require 'lina/schema'
 require 'jquery-rails'
 require 'bootstrap-sass'
 require 'jbuilder'
+require 'angularjs-rails'
+require 'underscore-rails'
+require 'sass-rails'
 
 require 'lina/rails/router'

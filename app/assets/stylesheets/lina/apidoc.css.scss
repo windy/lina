@@ -1,0 +1,81 @@
+.apidoc-page {
+  height: 100%;
+  margin-right: 0;
+  margin-left: 0;
+
+  .apidoc-title {
+    border-bottom: 1px solid #eee;
+    margin: 0;
+    padding: 16px;
+    text-align: center;
+    font-weight: 200;
+    color: #999;
+  }
+
+  .more-info {
+    white-space: pre;
+  }
+
+  .api-left-tree {
+    height: 100%;
+    overflow-y: auto;
+    background: #FAFAFA;
+    border-right: 1px solid #eee;
+    padding: 0;
+    font-size: 16px;
+    .nav-pills > li > a {
+      border-radius: 0;
+      padding: 6px;
+    }
+  }
+
+  .api-contents {
+    padding-top: 10px;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 20px;
+  }
+
+  .path {
+    font-size: 32px;
+    padding: 0px 0 15px 0;
+    .path-path {
+      font-size: 28px;
+    }
+  }
+
+  .name {
+    margin-bottom: 15px;
+  }
+
+  .description {
+    white-space: pre;
+    color: #999;
+    font-size: 75%;
+  }
+
+  .parameters-title, .return-title {
+    margin-top: 28px;
+    font-size: 28px;
+  }
+
+  .table-wrapper {
+    background: #E8F4FF;
+    padding: 10px 20px 20px;
+    margin-bottom: 30px;
+  }
+
+  .table {
+    font-size: 16px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .table > thead > tr > th {
+    border: none;
+  }
+
+  .table > tbody > tr > td {
+    border: none;
+  }
+}
