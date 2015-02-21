@@ -34,7 +34,7 @@ module Lina
     def self.params_check(schema, data)
       return unless Lina.params_check
       begin
-        JSON::Validator.validate!(schema, data)
+        JSON::Validator.validate!(schema, data, insert_defaults: true)
       rescue JSON::Schema::ValidationError => e
         raise Lina::ParamsCheckError, e.message
       end

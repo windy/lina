@@ -75,4 +75,23 @@ class DesksController < Lina::ApplicationController
   } do
     render json: { }
   end
+
+  define_action :default_value, {
+    name: '更新指定的桌子',
+    params: {
+      type: 'object',
+      required: [ 'filter' ],
+      properties: {
+        filter: {
+          type: 'string',
+          default: 'default',
+        }
+      }
+    },
+    return: {
+    }
+  } do
+    @filter = params[:filter]
+    render json: { }
+  end
 end

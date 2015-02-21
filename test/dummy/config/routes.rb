@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :update] do
     resources :labels, only: [:index]
   end
-  resources :desks, only: [:index, :show, :update]
+  resources :desks, only: [:index, :show, :update] do
+    collection do
+      get :default_value
+    end
+  end
   root 'posts#index'
 end

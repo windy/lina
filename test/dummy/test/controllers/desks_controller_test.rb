@@ -15,7 +15,11 @@ class DesksControllerTest < ActionController::TestCase
   end
 
   test "default value" do
-    skip "next"
+    get :default_value
+    assert_equal( 'default', assigns(:filter) )
+
+    get :default_value, filter: '1'
+    assert_equal( '1', assigns(:filter) )
   end
 
 end
