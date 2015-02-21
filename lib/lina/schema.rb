@@ -40,6 +40,10 @@ module Lina
       end
     end
 
+    def self.schema_check(schema)
+      JSON::Validator.fully_validate_schema(schema)
+    end
+
     def self.return_check(schema, data)
       return unless Lina.return_check
       begin
@@ -55,6 +59,12 @@ module Lina
       rescue JSON::Schema::ValidationError => e
         raise Lina::ApiSpecError, e.message
       end
+
+      validator_message = schema_check(data[:params])
+      raise Lina::ApiSpecParamsError, validator_message[0] if validator_message.present?
+
+      validator_message = schema_check(data[:return])
+      raise Lina::ApiSpecReturnError, validator_message[0] if validator_message.present?
     end
   end # end of class Validator
 

@@ -10,4 +10,10 @@ module Lina
 
   class ApiSpecError < Error #:nodoc:
   end
+
+  class ApiSpecParamsError < Error #:nodoc:
+  end
+
+  class ApiSpecReturnError < Error #:nodoc:
+  end
 end
