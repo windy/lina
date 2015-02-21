@@ -1,0 +1,16 @@
+Description:
+    Creates API controller and action(s) to your application.
+
+Example:
+    rails generate lina:api Posts index show
+
+    This will create:
+        create  app/controllers/posts_controller.rb
+         route  get 'posts/show'
+         route  get 'posts/index'
+        invoke  test_unit
+        create    test/controllers/posts_controller_test.rb
+        invoke  jbuilder
+        create    app/views/posts
+        create    app/views/posts/index.json.jbuilder
+        create    app/views/posts/show.json.jbuilder
