@@ -1,6 +1,8 @@
 ![lina logo](lina-logo.png)
 
+[![Gem Version](https://badge.fury.io/rb/lina.svg)](http://badge.fury.io/rb/lina)
 [![Build Status](https://travis-ci.org/windy/lina.png?branch=master)](https://travis-ci.org/windy/lina)
+[![Dependency Status](https://gemnasium.com/windy/lina.svg)](https://gemnasium.com/windy/lina)
 
 Rails 开发者零成本上手的 Restful API 框架.
 
@@ -193,7 +195,7 @@ end
 ```ruby
 Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
-  
+
   resources :labels, only: [:index] do
     member do
       post :approve
