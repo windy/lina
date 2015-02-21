@@ -12,6 +12,7 @@ class PostsController < Lina::ApplicationController
   define_action :show, {
     name: 'show a post by ID',
     params: {
+      type: 'object',
       required: [ :id ],
       properties: {
         id: {
@@ -28,6 +29,7 @@ class PostsController < Lina::ApplicationController
   define_action :update, {
     name: 'update the post by ID',
     params: {
+      type: 'object',
       required: [ :id ],
       properties: {
         id: {

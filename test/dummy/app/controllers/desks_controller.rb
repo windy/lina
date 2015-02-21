@@ -40,6 +40,7 @@ class DesksController < Lina::ApplicationController
       },
     },
     return: {
+      type: 'object',
       required: [ 'name' ],
       properties: {
         name: {
