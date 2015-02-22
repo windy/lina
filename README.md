@@ -31,7 +31,9 @@ $ rails g lina:api posts index
 
 ps: 目前仅支持 `Rails 4.1+`, `Rails4.2`, 如果你有更低版本的支持需求, 请告诉我.
 
-Rails 新手 Lina 使用说明: [Rails 新手?](https://github.com/windy/lina/wiki)
+Rails 新手 Lina 使用说明: [Rails 新手?( TODO )](https://github.com/windy/lina/wiki)
+
+pps: 目前 Lina 最新版 0.0.1, 暂不建议应用于生产环境, 成熟后我将发布 0.1.0 版本.
 
 ##  使用方法
 
