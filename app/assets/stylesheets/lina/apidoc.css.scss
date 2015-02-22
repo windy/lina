@@ -2,6 +2,7 @@
   height: 100%;
   margin-right: 0;
   margin-left: 0;
+  font-weight: 300;
 
   .apidoc-title {
     border-bottom: 1px solid #eee;
@@ -57,6 +58,7 @@
   .parameters-title, .return-title {
     margin-top: 28px;
     font-size: 28px;
+    font-weight: 400;
   }
 
   .table-wrapper {
@@ -73,6 +75,7 @@
 
   .table > thead > tr > th {
     border: none;
+    font-weight: 400;
   }
 
   .table > tbody > tr > td {
