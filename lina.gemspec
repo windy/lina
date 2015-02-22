@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Li Yafei"]
   s.email       = ["lyfi2003@gmail.com"]
   s.homepage    = "https://github.com/windy/lina"
-  s.summary     = "a charming self-documenting api provider based on Ruby on Rails"
-  s.description = "charming, self-documenting, json schema, based on Ruby on Rails"
+  s.summary     = "a charming self-documenting RESTful api provider based on Ruby on Rails"
+  s.description = "Lina is a RESTful API provider based on Ruby on Rails, with zero learning costs for Railser, it could help you generate your apidoc, help you check params before api call, and more."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
