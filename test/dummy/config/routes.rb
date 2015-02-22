@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'arrays/index'
+
   namespace :admin do
     get 'posts/index'
   end
