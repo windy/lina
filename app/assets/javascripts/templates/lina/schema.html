@@ -1,21 +1,31 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th width='20%'>Name</th>
-      <th width='20%'>Type</th>
-      <th width='25%'>More Info</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat='(key, value) in schema.properties'>
-      <td><span>{{ key }}
-        <span class="label label-primary" ng-show='isRequired(schema, key)'>must</span>
-        <span class="label label-default" ng-hide='isRequired(schema, key)'>optional</span>
-      </td>
-      <td>{{ value.type }}</td>
-      <td class='more-info'>{{ moreInfo(value) }}</td>
-      <td>{{ value.description }}</td>
-    </tr>
-  </tbody>
-</table>
+<div ng-if="isOneOf()">
+  <div ng-repeat='s in schema.oneOf'>
+  <json-schema schema='refInfo(s)'></json-schema>
+  </div>
+</div>
+<div ng-if="isString()">
+  String
+</div>
+<div ng-if='isObject()'>
+	<table class='table'>
+	  <thead>
+	    <tr>
+	      <th width='20%'>Name</th>
+	      <th width='20%'>Type</th>
+	      <th width='25%'>More Info</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat='(key, value) in schema.properties'>
+	      <td><span>{{ key }}
+	        <span class="label label-primary" ng-show='isRequired(schema, key)'>must</span>
+	        <span class="label label-default" ng-hide='isRequired(schema, key)'>optional</span>
+	      </td>
+	      <td>{{ value.type }}</td>
+	      <td class='more-info'>{{ moreInfo(value) }}</td>
+	      <td>{{ value.description }}</td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>

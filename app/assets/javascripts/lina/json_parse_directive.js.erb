@@ -1,27 +1,99 @@
-app.directive('jsonSchema', function(){
+app.factory('RecursionHelper', ['$compile', function($compile){
   return {
-    restrict: 'E',
-    scope: {
-      schema: '='
-    },
-    link: function(scope, element, attrs){
-      scope.isRequired = function(params, name){
-        return params.required.indexOf(name) != -1;
+    /**
+     * Manually compiles the element, fixing the recursion loop.
+     * @param element
+     * @param [link] A post-link function, or an object with function(s) registered via pre and post properties.
+     * @returns An object containing the linking functions.
+     */
+    compile: function(element, link){
+      // Normalize the link parameter
+      if(angular.isFunction(link)){
+        link = { post: link };
       }
 
-      scope.moreInfo = function(properties) {
-        properties = _.clone(properties);
-        ['type', 'description'].forEach(function(e){
-          delete properties[e];
-        })
-        var info = '';
-        _.keys(properties).forEach( function(k) {
-          info = info + k + ": " + properties[k] + "\n";
-        })
-        return info;
-      }
-    },
-    templateUrl: '<%= asset_path("templates/lina/schema.html") %>'
+      // Break the recursion loop by removing the contents
+      var contents = element.contents().remove();
+      var compiledContents;
+      return {
+        pre: (link && link.pre) ? link.pre : null,
+/**
+ * Compiles and re-adds the contents
+ */
+          post: function(scope, element){
+            // Compile the contents
+            if(!compiledContents){
+              compiledContents = $compile(contents);
+            }
+            // Re-add the compiled contents to the element
+            compiledContents(scope, function(clone){
+              element.append(clone);
+            });
+
+            // Call the post-linking function, if any
+            if(link && link.post){
+              link.post.apply(null, arguments);
+            }
+          }
+      };
+    }
+  };
+}]);
+
+app.directive('jsonSchema', function(RecursionHelper){
+  return {
+    restrict: 'E',
+  scope: {
+    schema: '='
+  },
+  controller: function($scope){
+    $scope.isRequired = function(params, name){
+      return params.required.indexOf(name) != -1;
+    }
+
+    $scope.moreInfo = function(properties) {
+      properties = _.clone(properties);
+      ['type', 'description'].forEach(function(e){
+        delete properties[e];
+      })
+      var info = '';
+      _.keys(properties).forEach( function(k) {
+        info = info + k + ": " + properties[k] + "\n";
+      })
+      return info;
+    }
+
+    $scope.isOneOf = function(){
+      return !! $scope.schema.oneOf;
+    }
+
+    $scope.isObject = function(){
+      return !! $scope.schema.properties;
+    }
+
+    $scope.isString = function(){
+      return $scope.schema.type == 'string';
+    }
+
+    // translate { '$ref': '#/definitions/xx' } to real hash
+    $scope.refInfo = function(ref_hash){
+      var ref = ref_hash['$ref'];
+      var refs = ref.split('/');
+      var res;
+      _.each(refs, function(ref){
+        if( ref === '#' ){
+          res = $scope.schema;
+        }else{
+          res = res[ref];
+        }
+      });
+      return res;
+    }
+  },
+  compile: function(element){
+    return RecursionHelper.compile(element);
+  },
+  templateUrl: '<%= asset_path("templates/lina/schema.html") %>'
   };
 
 })
