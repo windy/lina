@@ -1,0 +1,13 @@
+app.directive('jsonSchema', function(){
+  return {
+    restrict: 'E',
+    scope: {
+      schema: '='
+    },
+    link: function(scope, element, attrs){
+    },
+    <%#templateUrl: '/assets/templates/schema.html'%>
+    templateUrl: '<%= asset_path("templates/lina/schema.html") %>'
+  };
+
+})
