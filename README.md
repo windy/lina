@@ -7,7 +7,14 @@
 
 Rails 开发者零成本上手的 Restful API 框架.
 
-Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 API 开发框架, 具备自动生成 API 文档, 自动校验入口, 自校验返回值参数等功能.
+Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 API 开发框架, 整合 Ruby on Rails 开发 API 的最佳实践, 并添加 API 文档, 校验等必备功能.
+
+它的特点:
+
+* Rails 开发者零成本上手
+* 自动生成 API 文档
+* 自动校验入口参数
+* 自动校验返回值参数
 
 与 `Ruby on Rails` 几乎体验一致, 与 `grape` 相比, 更加易于上手.
 
@@ -28,19 +35,19 @@ $ rails g lina:install
 $ rails g lina:api posts index
 ```
 
-启动 Rails 后, 访问 http://localhost:3000/apidoc 得到你的 API 文档.
+启动 Rails 后, 访问 `http://localhost:3000/apidoc` 得到你的 API 文档.
 
 ps: 目前仅支持 `Rails 4.1+`, `Rails4.2`, 如果你有更低版本的支持需求, 请告诉我.
 
 Rails 新手 Lina 使用说明: [Rails 新手?( TODO )](https://github.com/windy/lina/wiki)
 
-pps: 目前 Lina 最新版 0.0.1, 暂不建议应用于生产环境, 成熟后我将发布 0.1.0 版本.
+pps: 目前 Lina 最新版 0.0.2, 暂不建议应用于生产环境, 欢迎提交发现的问题, 成熟后我将发布 0.1.0 版本.
 
 ##  使用方法
 
-### APIDOC
+### 自动 APIDOC
 
-`Lina` 会自动生成项目的 APIDOC, 供前端或客户端 APP 使用.
+`Lina` 会遍历所有 API 控制器, 自动生成项目的 APIDOC, 供前端或客户端 APP 使用.
 
 APIDOC 中包括:
 
@@ -72,9 +79,9 @@ api_for '/apidoc'
 
 	* `&block`: 控制器实际代码
 
-`Lina` 还提供了生成器 `rails g lina:api posts index show` 来快速生成代码.
+你可以使用 Lina API 生成器 `rails g lina:api posts index show` 来快速生成代码.
 
-`Lina` 控制器完全兼容 `Rails` 的控制器, `filter`, `render`, `params` 都与 `Rails` 完全一致.
+`Lina` 控制器逻辑代码完全兼容 `Rails` 的控制器, `filter`, `render`, `params` 都与 `Rails` 完全一致.
 
 ```ruby
 class UsersController < Lina::ApplicationController
@@ -174,7 +181,7 @@ bio: 非必填, string 类型.
 
 `return` 的写法与 `params` 一致.
 
-更全面的例子参考 [json-schema 官方例子](http://json-schema.org/examples.html)
+`json-schema` 非常强大与简洁, 可以很容易地写出既优雅又安全的代码, 更全面的例子参考 [json-schema 官方例子](http://json-schema.org/examples.html)
 
 ### JSON 生成
 
@@ -189,7 +196,7 @@ json.array! @posts do |post|
 end
 ```
 
-`Lina` 整合了 `jbuilder`, 请到这里查看更多写法: [jbuilder readme](https://github.com/rails/jbuilder)
+`Lina` 整合了 `jbuilder`, 请到这里查看更多写法: [Jbuilder README](https://github.com/rails/jbuilder)
 
 ### 路由与版本
 
@@ -207,7 +214,7 @@ Rails.application.routes.draw do
 end
 ```
 
-对外的 API 一定要用版本隔开, 如下:
+对外的 API 一定要用版本号隔开, 如下:
 
 ```ruby
 scope 'api/v1' do
@@ -227,12 +234,16 @@ end
 
 ### 权限与认证
 
-`Lina` 为了保持简洁, 并不提供这部分的支持.
+`Lina` 为了保持简洁, 并不提供这部分的支持, 但整合非常容易.
 
 * 权限管理, 推荐使用 [`cancancan`](https://github.com/CanCanCommunity/cancancan)
 * 认证, 推荐 `JWT`, 看看这里: [`ruby-jwt`](https://github.com/progrium/ruby-jwt)
 
 你可以像 `Rails` 一样使用 `Lina`.
+
+### CORS 跨域
+
+推荐使用 [`rake-cors`](https://github.com/cyu/rack-cors) 整合.
 
 ### 测试
 
@@ -255,12 +266,15 @@ class DesksControllerTest < ActionController::TestCase
 end
 ```
 
-## 开发指南
+## 贡献指南
+
+Lina 做了以下几件事情:
 
 1. `define_action` 实际上会将 API 信息存入类实例变量中, APIDOC 通过 `Lina::ApplicationController` 的子类遍历, 依据这些信息显示的.
 2. 覆写 `send_action`, 提供入口检测与返回参数检测.
 3. 提供生成器 `lina:install`, `lina:api`.
 4. 添加 `api_for` 路由项.
+5. 一个强大的 APIDOC
 
 `lina` 使用了 [appraisals](https://github.com/thoughtbot/appraisal) 测试不同版本 Rails 的支持情况.
 
