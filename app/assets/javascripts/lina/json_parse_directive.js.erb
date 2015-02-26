@@ -46,9 +46,9 @@ app.directive('jsonSchema', [ 'RecursionHelper', function(RecursionHelper){
   scope: {
     schema: '='
   },
-  controller: function($scope){
+  controller: ['$scope', function($scope){
     $scope.isRequired = function(params, name){
-      return params.required.indexOf(name) != -1;
+      return _.contains(params.required, name);
     }
 
     $scope.moreInfo = function(properties) {
@@ -109,7 +109,7 @@ app.directive('jsonSchema', [ 'RecursionHelper', function(RecursionHelper){
       });
       return res;
     }
-  },
+  }],
   compile: function(element){
     return RecursionHelper.compile(element);
   },
