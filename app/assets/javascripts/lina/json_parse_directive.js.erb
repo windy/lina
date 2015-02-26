@@ -40,7 +40,7 @@ app.factory('RecursionHelper', ['$compile', function($compile){
   };
 }]);
 
-app.directive('jsonSchema', function(RecursionHelper){
+app.directive('jsonSchema', [ 'RecursionHelper', function(RecursionHelper){
   return {
     restrict: 'E',
   scope: {
@@ -116,4 +116,4 @@ app.directive('jsonSchema', function(RecursionHelper){
   templateUrl: '<%= asset_path("templates/lina/schema.html") %>'
   };
 
-})
+}])
