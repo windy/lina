@@ -1,6 +1,7 @@
 ![lina logo](lina-logo.png)
 
 [![Gem Version](https://badge.fury.io/rb/lina.svg)](http://badge.fury.io/rb/lina)
+[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](MIT-LICENSE)
 [![Build Status](https://travis-ci.org/windy/lina.png?branch=master)](https://travis-ci.org/windy/lina)
 [![Dependency Status](https://gemnasium.com/windy/lina.svg)](https://gemnasium.com/windy/lina)
 
