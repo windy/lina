@@ -60,7 +60,7 @@ app.directive('jsonSchema', function(RecursionHelper){
       _.keys(properties).forEach( function(k) {
         info = info + k + ": " + properties[k] + "\n";
       })
-      return info;
+      return info || '-';
     }
 
     $scope.isOneOf = function(){
@@ -73,6 +73,26 @@ app.directive('jsonSchema', function(RecursionHelper){
 
     $scope.isString = function(){
       return $scope.schema.type == 'string';
+    }
+
+    $scope.isArray = function(){
+      return $scope.schema.type == 'array';
+    }
+
+    $scope.isNull = function(){
+      return $scope.schema.type == 'null';
+    }
+
+    $scope.isBoolean = function(){
+      return $scope.schema.type == 'boolean';
+    }
+
+    $scope.isEmpty = function(){
+      return _.isEmpty($scope.schema);
+    }
+
+    $scope.hasMoreInfo = function(value){
+      return value.type !== 'array'
     }
 
     // translate { '$ref': '#/definitions/xx' } to real hash

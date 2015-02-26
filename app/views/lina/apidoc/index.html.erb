@@ -4,13 +4,13 @@
 		<h4 class='apidoc-title'>APIDOC</h4>
     <abn-tree tree-data="my_data" tree-control="my_tree" on-select='showApi(branch)'></abn-tree>
 	</div>
-	<div class="col-sm-9 col-lg-10 api-contents">
+	<div class="col-sm-9 col-lg-10 api-contents ng-cloak">
     <ul class='list-unstyled'>
-      <li ng-repeat='api in currentApi'>
-      <div class='path'>
-        <span class='path-verb'> {{ api.verb }} </span>
-        <span class='path-path'> {{ api.path }} </span>
-      </div>
+      <li class='api-content-wrapper' ng-repeat='api in currentApi'>
+        <div class='path'>
+          <span class='path-verb'> {{ api.verb }} </span>
+          <span class='path-path'> {{ api.path }} </span>
+        </div>
         <div class="name">{{ api.schema.name }}</div>
         <p class='description'>{{ api.schema.description }}</p>
         <h4 class='parameters-title'>Parameter</h4>
@@ -19,7 +19,6 @@
         </div><!-- .table-wrapper -->
 
         <h4 class='return-title'>Return</h4>
-        <p>{{ api.schema.return.type }}</p>
         <p class='description'>{{ api.schema.return.description }}</p>
         <div class="table-wrapper">
           <json-schema schema='api.schema.return'></json-schema>

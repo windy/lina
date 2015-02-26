@@ -13,6 +13,15 @@
     color: #999;
   }
 
+  .api-content-wrapper {
+    border-bottom: 4px solid #aaa;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    &:last-child {
+      border: none;
+    }
+  }
+
   .more-info {
     white-space: pre;
   }
@@ -52,7 +61,7 @@
   .description {
     white-space: pre;
     color: #999;
-    font-size: 75%;
+    font-size: 85%;
   }
 
   .parameters-title, .return-title {
@@ -63,7 +72,7 @@
 
   .table-wrapper {
     background: #E8F4FF;
-    padding: 10px 20px 20px;
+    padding: 10px;
     margin-bottom: 30px;
   }
 
@@ -80,5 +89,32 @@
 
   .table > tbody > tr > td {
     border: none;
+  }
+
+  .table > tbody > tr > td.description {
+    font-size: 90%;
+  }
+
+  .left {
+    display: inline-block;
+    width: 200px;
+  }
+
+  .right {
+    display: inline-block;
+  }
+
+  .sub-json-schema {
+    font-size: 85%;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #cdd;
+    padding: 10px;
+  }
+
+  .blank {
+    color: #aaa;
+    margin-bottom: 0;
   }
 }

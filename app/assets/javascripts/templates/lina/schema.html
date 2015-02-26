@@ -1,13 +1,57 @@
+<div ng-if="isEmpty()">
+  <p class='blank'>
+  	No Data
+  </p>
+</div>
 <div ng-if="isOneOf()">
+  <p>
+    <div class="left">Type</div>
+    <div class="right">One type of these below</div>
+  </p>
   <div ng-repeat='s in schema.oneOf'>
-  <json-schema schema='refInfo(s)'></json-schema>
+    <div class="sub-json-schema">
+    	<json-schema schema='refInfo(s)'></json-schema>
+    </div>
   </div>
 </div>
 <div ng-if="isString()">
-  String
+  <p>
+    <div class="left">Type</div>
+    <div class="right">String</div>
+  </p>
+  <p>
+    <div class="left">More Info</div>
+    <div class="right more-info ng-cloak">{{ moreInfo(schema) }}</div>
+  </p>
+</div>
+<div ng-if="isBoolean()">
+  <p>
+    <div class="left">Type</div>
+    <div class="right">Boolean</div>
+  </p>
+  <p>
+    <div class="left">More Info</div>
+    <div class="right more-info ng-cloak">{{ moreInfo(schema) }}</div>
+  </p>
+</div>
+<div ng-if="isNull()">
+  <p>
+    <div class="left">Type</div>
+    <div class="right">Null</div>
+  </p>
+</div>
+<div ng-if="isArray()">
+  <p>
+    <div class="left">Type</div>
+    <div class="right">Array</div>
+  </p>
+  <p>Items:</p>
+  <div class="sub-json-schema">
+    <json-schema schema='schema.items'></json-schema>
+  </div>
 </div>
 <div ng-if='isObject()'>
-	<table class='table'>
+	<table class='table ng-cloak'>
 	  <thead>
 	    <tr>
 	      <th width='20%'>Name</th>
@@ -23,8 +67,16 @@
 	        <span class="label label-default" ng-hide='isRequired(schema, key)'>optional</span>
 	      </td>
 	      <td>{{ value.type }}</td>
-	      <td class='more-info'>{{ moreInfo(value) }}</td>
-	      <td>{{ value.description }}</td>
+	      <td class='more-info' ng-if='hasMoreInfo(value)'>{{ moreInfo(value) }}</td>
+	      <td class='more-info-array' ng-if='! hasMoreInfo(value)'>
+          <div>
+          	Array Items:
+          </div>
+          <div class="sub-json-schema">
+            <json-schema schema='value.items'></json-schema>
+          </div>
+        </td>
+	      <td class='description'>{{ value.description }}</td>
 	    </tr>
 	  </tbody>
 	</table>
