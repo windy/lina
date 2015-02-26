@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.description = "Lina is a RESTful API provider based on Ruby on Rails, with zero learning costs for Railser, it could help you generate your apidoc, help you check params before api call, and more."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md", 'Appraisals', 'lina-logo.png' ]
+  s.test_files = Dir["test/**/*"] - Dir["test/dummy/tmp/**/*"]
 
   s.required_ruby_version = '>= 2.0.0'
   s.add_dependency "rails", ">= 4.0.0"
