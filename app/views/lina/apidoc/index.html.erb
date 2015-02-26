@@ -1,10 +1,10 @@
 <div class="row apidoc-page" ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
 
-	<div class="col-md-3 api-left-tree">
+	<div class="col-sm-3 col-lg-2 api-left-tree">
 		<h4 class='apidoc-title'>APIDOC</h4>
     <abn-tree tree-data="my_data" tree-control="my_tree" on-select='showApi(branch)'></abn-tree>
 	</div>
-	<div class="col-md-9 api-contents">
+	<div class="col-sm-9 col-lg-10 api-contents">
     <ul class='list-unstyled'>
       <li ng-repeat='api in currentApi'>
       <div class='path'>
