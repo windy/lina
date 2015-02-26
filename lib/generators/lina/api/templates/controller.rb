@@ -11,7 +11,6 @@ class <%= class_name %>Controller < Lina::ApplicationController
     description: '',
     params: {
       type: 'object',
-      required: [],
       properties: {
       }
     },
