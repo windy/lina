@@ -37,11 +37,11 @@ $ rails g lina:api posts index
 
 启动 Rails 后, 访问 `http://localhost:3000/apidoc` 得到你的 API 文档.
 
-ps: 目前仅支持 `Rails 4.1+`, `Rails4.2`, 如果你有更低版本的支持需求, 请告诉我.
+ps: 目前仅支持 `Rails 4.1`, `Rails4.2`, 如果你有更低版本的支持需求, 请告诉我.
 
 Rails 新手 Lina 使用说明: [Rails 新手?( TODO )](https://github.com/windy/lina/wiki)
 
-pps: 目前 Lina 最新版 0.0.2, 暂不建议应用于生产环境, 欢迎提交发现的问题, 成熟后我将发布 0.1.0 版本.
+目前 Lina 最新版 0.0.2 已经基本完善.
 
 ##  使用方法
 
