@@ -12,19 +12,4 @@ app.controller('ApidocController', [ '$scope', '$http', function($scope, $http){
     });
   }
 
-  $scope.isRequired = function(params, name){
-    return params.required.indexOf(name) != -1;
-  }
-
-  $scope.moreInfo = function(properties) {
-    properties = _.clone(properties);
-    ['type', 'description'].forEach(function(e){
-      delete properties[e];
-    })
-    var info = '';
-    _.keys(properties).forEach( function(k) {
-      info = info + k + ": " + properties[k] + "\n";
-    })
-    return info;
-  }
 }])

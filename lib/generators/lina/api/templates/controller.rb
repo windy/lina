@@ -5,6 +5,7 @@ require_dependency "<%= namespaced_path %>/application_controller"
 <% module_namespacing do -%>
 class <%= class_name %>Controller < Lina::ApplicationController
 <% actions.each do |action| -%>
+  # def <%= action %>
   define_action :<%= action %>, {
     name: '<%= action %>',
     description: '',
