@@ -286,11 +286,11 @@ Lina 做了以下几件事情:
 
 ### 访问 APIDOC 时 出现 Lina::ApiSpecError in Lina::ApidocController
 
-Lina::ApiSpecError 说明某处的 API 定义出现了问题, 不符合约定, API 声明时, 必须有 `name`, `params`, `return`.
+* `Lina::ApiSpecError` 说明某处的 API 定义出现了问题, 不符合约定, API 声明时, 必须有 `name`, `params`, `return`.
 
-Lina::ApiSpecParamsError 说明 API 定义时 `params` 不符合 JSON Schema 的格式, 请检查.
+* `Lina::ApiSpecParamsError` 说明 API 定义时 `params` 不符合 JSON Schema 的格式, 请检查.
 
-Lina::ApiSpecReturnError 说明 API 定义时 `return` 不符合 JSON Schema 的格式, 请检查.
+* `Lina::ApiSpecReturnError` 说明 API 定义时 `return` 不符合 JSON Schema 的格式, 请检查.
 
 ## TODOLIST
 
