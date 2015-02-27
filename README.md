@@ -7,7 +7,7 @@
 
 Rails 开发者零成本上手的 RESTful API 框架.
 
-Lina 是基于 `Ruby oRn Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 API 开发框架, 整合 Ruby on Rails 开发 API 的最佳实践, 并添加 API 文档, 校验等必备功能.
+Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 RESTful API 开发框架, 整合 Ruby on Rails 开发 API 的最佳实践, 并添加 API 文档, 校验等必备功能.
 
 它的特点:
 
