@@ -5,9 +5,9 @@
 [![Build Status](https://travis-ci.org/windy/lina.png?branch=master)](https://travis-ci.org/windy/lina)
 [![Dependency Status](https://gemnasium.com/windy/lina.svg)](https://gemnasium.com/windy/lina)
 
-Rails 开发者零成本上手的 Restful API 框架.
+Rails 开发者零成本上手的 RESTful API 框架.
 
-Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 API 开发框架, 整合 Ruby on Rails 开发 API 的最佳实践, 并添加 API 文档, 校验等必备功能.
+Lina 是基于 `Ruby oRn Rails`, [JSON Schema](http://json-schema.org), `jbuilder` 的 API 开发框架, 整合 Ruby on Rails 开发 API 的最佳实践, 并添加 API 文档, 校验等必备功能.
 
 它的特点:
 
@@ -200,7 +200,7 @@ end
 
 ### 路由与版本
 
-`Lina` 沿用了 `Rails` 的路由系统, 建议使用 `Rails Restful Route` 写法:
+`Lina` 沿用了 `Rails` 的路由系统, 建议使用 `Rails RESTful Route` 写法:
 
 ```ruby
 Rails.application.routes.draw do
