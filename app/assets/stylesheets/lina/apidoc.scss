@@ -4,13 +4,26 @@
   margin-left: 0;
   font-weight: 300;
 
+  .apidoc-left-title {
+    font-weight: 200;
+    padding: 16px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    color: #999;
+  }
+
   .apidoc-title {
     border-bottom: 1px solid #eee;
-    margin: 0;
+    margin: -10px -10px 10px -10px;
     padding: 16px;
     text-align: center;
     font-weight: 200;
     color: #999;
+
+    .api-expand-handle {
+      float: left;
+      cursor: pointer;
+    }
   }
 
   .api-content-wrapper {
@@ -40,6 +53,10 @@
       padding: 6px;
       white-space: nowrap;
     }
+
+    &.expandedTree {
+      display: none;
+    }
   }
 
   .api-contents {
@@ -48,6 +65,9 @@
     height: 100%;
     overflow-y: auto;
     font-size: 20px;
+    &.expandedTree {
+      margin-left: 0;
+    }
   }
 
   .path {
