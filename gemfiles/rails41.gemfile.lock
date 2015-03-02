@@ -134,7 +134,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    underscore-rails (1.7.0)
+    underscore-rails (1.8.2)
 
 PLATFORMS
   ruby
