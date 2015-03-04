@@ -22,6 +22,8 @@ Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder
 
 ```ruby
 #  Gemfile
+
+[![Join the chat at https://gitter.im/windy/lina](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/windy/lina?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 gem 'lina'
 ```
 `bundle install` 之后, 安装
