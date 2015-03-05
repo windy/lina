@@ -23,7 +23,6 @@ Lina 是基于 `Ruby on Rails`, [JSON Schema](http://json-schema.org), `jbuilder
 ```ruby
 #  Gemfile
 
-[![Join the chat at https://gitter.im/windy/lina](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/windy/lina?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 gem 'lina'
 ```
 `bundle install` 之后, 安装
@@ -283,6 +282,8 @@ Lina 做了以下几件事情:
 首次开发时, 请使用 `bundle install` 和 `appraisal install` 来安装各版本 Rails 的依赖.
 
 提交 PR 时, 请确保本地 `appraisal rake` 通过.
+
+[![Join the chat at https://gitter.im/windy/lina](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/windy/lina?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## 常见问题
 
