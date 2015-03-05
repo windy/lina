@@ -14,8 +14,8 @@ class Lina::ApidocControllerTest < ActionController::TestCase
 
   class ::CrudController < Lina::ApplicationController
     [:index, :new, :update, :create, :destroy, :show, :edit].each do |name|
-      define_action :index, {
-        name: 'index',
+      define_action name, {
+        name: name,
         params: {
         },
         return: {
