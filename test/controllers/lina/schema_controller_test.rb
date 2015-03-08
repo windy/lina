@@ -2,7 +2,7 @@ require 'test_helper'
 
 module Lina
   class SchemaControllerTest < ActionController::TestCase
-    test "Lina::ApiSpecError" do
+    test 'Lina::ApiSpecError' do
       a = -> {
         class WrongAPiSpecController < Lina::ApplicationController
           define_action :index, { params: 'spec erorr' } do
@@ -13,7 +13,7 @@ module Lina
       assert_raise(Lina::ApiSpecError, &a)
     end
 
-    test "Lina::ApiSpecParamsError" do
+    test 'Lina::ApiSpecParamsError' do
       a = -> {
         class WrongAPiSpecController < Lina::ApplicationController
           define_action :index, {
@@ -28,7 +28,7 @@ module Lina
       assert_raise(Lina::ApiSpecParamsError, &a)
     end
 
-    test "Lina::ApiSpecReturnError" do
+    test 'Lina::ApiSpecReturnError' do
       a = -> {
         class WrongAPiSpecController < Lina::ApplicationController
           define_action :index, {

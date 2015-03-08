@@ -18,11 +18,12 @@ module Lina
     before_filter :default_format_json
 
     private
+
     def default_format_json
-      request.format = "json" unless params[:format]
+      request.format = 'json' unless params[:format]
     end
 
-    class <<self
+    class << self
       _actions = {}
       def define_action(name, schema={}, &block)
         Lina::Validator.api_spec_check(Lina::Schema.argument, schema)

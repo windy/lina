@@ -1,0 +1,10 @@
+zh-CN:
+  lina:
+    apidoc: API文档
+    tree: 文档树
+    return: 返回
+    parameter: 参数
+
+    controller: 控制器
+    action: 控制器方法
+    notfound: 无法找到

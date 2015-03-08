@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'posts/index'
   end
 
-  mount Lina::Engine => "/lina"
+  mount Lina::Engine => '/lina'
 
   resources :arrays, only: [:index] do
     collection do

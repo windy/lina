@@ -7,9 +7,9 @@ module Lina
     destination Rails.root.join('tmp/generators')
     setup :prepare_destination
 
-    test "generator runs without errors" do
+    test 'generator runs without errors' do
       assert_nothing_raised do
-        run_generator ["index show"]
+        run_generator ['index show']
       end
     end
   end

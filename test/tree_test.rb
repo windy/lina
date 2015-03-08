@@ -2,7 +2,7 @@ require 'test_helper'
 
 module Lina
   class TreeTest < ActiveSupport::TestCase
-    test ".paths_to_tree" do
+    test '.paths_to_tree' do
       routes = [
         { path: '/admin/posts', verb: 'GET' },
         { path: '/admin/labels', verb: 'GET' },

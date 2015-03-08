@@ -1,4 +1,4 @@
-require_dependency "lina/base_controller"
+require_dependency 'lina/base_controller'
 
 module Lina
   class ApidocController < BaseController

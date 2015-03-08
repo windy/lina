@@ -17,7 +17,7 @@ class PostsController < Lina::ApplicationController
       properties: {
         id: {
           type: 'integer'
-        },
+        }
       }
     },
     return: {
@@ -34,7 +34,7 @@ class PostsController < Lina::ApplicationController
       properties: {
         id: {
           type: 'integer'
-        },
+        }
       }
     },
     return: {

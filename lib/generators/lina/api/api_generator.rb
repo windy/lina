@@ -1,10 +1,10 @@
 module Lina
   module Generators
     class ApiGenerator < Rails::Generators::NamedBase # :nodoc:
-      source_root File.expand_path("../templates", __FILE__)
+      source_root File.expand_path('../templates', __FILE__)
 
-      argument :actions, type: :array, default: [], banner: "action1 action2"
-      check_class_collision suffix: "Controller"
+      argument :actions, type: :array, default: [], banner: 'action1 action2'
+      check_class_collision suffix: 'Controller'
 
       def create_controller_files
         template 'controller.rb', File.join('app/controllers', class_path, "#{file_name}_controller.rb")

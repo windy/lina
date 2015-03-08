@@ -1,0 +1,10 @@
+en:
+  lina:
+    apidoc: API DOC
+    tree: Tree
+    return: Return
+    parameter: Parameter
+
+    controller: Controller
+    action: Action
+    notfound: NOT FOUND

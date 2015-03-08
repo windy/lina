@@ -7,4 +7,4 @@ end
 
 gemspec
 
-gem "appraisal"
+gem 'appraisal'

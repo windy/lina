@@ -1,13 +1,13 @@
 <div class="apidoc-page" ng-controller='ApidocController' ng-init="setData('<%= lina.data_path %>')">
 
   <div class="api-left-tree" ng-class='{ expandedTree: expanded }'>
-    <h4 class='apidoc-left-title'> Tree </h4>
+    <h4 class='apidoc-left-title'> <%= t('lina.tree') %> </h4>
     <abn-tree tree-data="my_data" tree-control="my_tree" on-select='showApi(branch)'></abn-tree>
 	</div>
   <div class="api-contents ng-cloak" ng-class='{ expandedTree: expanded }'>
     <h4 class='apidoc-title'>
       <span class='api-expand-handle glyphicon glyphicon-menu-hamburger' ng-click='expanded = ! expanded'></span>
-      APIDOC
+      <%= t('lina.apidoc') %>
     </h4>
     <ul class='list-unstyled'>
       <li class='api-content-wrapper' ng-repeat='api in currentApi'>
@@ -17,12 +17,12 @@
         </div>
         <div class="name">{{ api.schema.name }}</div>
         <p class='description'>{{ api.schema.description }}</p>
-        <h4 class='parameters-title'>Parameter</h4>
+        <h4 class='parameters-title'><%= t('lina.parameter') %></h4>
         <div class="table-wrapper">
           <json-schema schema='api.schema.params'></json-schema>
         </div><!-- .table-wrapper -->
 
-        <h4 class='return-title'>Return</h4>
+        <h4 class='return-title'><%= t('lina.return') %></h4>
         <p class='description'>{{ api.schema.return.description }}</p>
         <div class="table-wrapper">
           <json-schema schema='api.schema.return'></json-schema>
