@@ -4,6 +4,7 @@ PATH
     lina (0.0.2)
       angularjs-rails
       bootstrap-sass
+      i18n
       jbuilder
       jquery-rails
       json-schema
@@ -12,7 +13,7 @@ PATH
       underscore-rails
 
 GEM
-  remote: http://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.9)
       actionpack (= 4.1.9)
