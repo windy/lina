@@ -271,7 +271,7 @@ end
 
 Lina 做了以下几件事情:
 
-1. `define_action` 实际上会将 API 信息存入类实例变量中, APIDOC 通过 `Lina::ApplicationController` 的子类遍历, 依据这些信息显示的.
+1. `define_action` 实际上会将 API 信息存入类变量中, APIDOC 通过 `Lina::ApplicationController` 的子类遍历, 依据这些信息显示的.
 2. 覆写 `send_action`, 提供入口检测与返回参数检测.
 3. 提供生成器 `lina:install`, `lina:api`.
 4. 添加 `api_for` 路由项.
@@ -299,8 +299,6 @@ Lina 做了以下几件事情:
 
 * Schema Form ( TODO )
 * ActiveRecord Validator Helper ( TODO )
-* I18N Support( TODO )
-
 
 ## 贡献者
 

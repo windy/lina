@@ -17,6 +17,9 @@ module Lina
 
     before_filter :default_format_json
 
+    # 类变量
+    @@action_methods = {}
+
     private
 
     def default_format_json
