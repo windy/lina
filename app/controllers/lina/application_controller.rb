@@ -1,12 +1,12 @@
 module Lina
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
 
     def send_action(method_name, *args)
       block = self.class.action_block(method_name)
       schema = self.class.action_schema(method_name)
       if block
         Lina::Validator.params_check(schema[:params], params)
-        ret = self.instance_exec(*args, &block)
+        ret = self.instance_exec(*args, &_convert_to_lambda(&block))
         default_render unless performed?
         Lina::Validator.return_check(schema[:return], response.body)
         ret
@@ -23,6 +23,11 @@ module Lina
       request.format = 'json' unless params[:format]
     end
 
+    def _convert_to_lambda(&block)
+      self.define_singleton_method(:_, &block)
+      return self.method(:_).to_proc
+    end
+
     class << self
       _actions = {}
       def define_action(name, schema={}, &block)
@@ -32,12 +37,12 @@ module Lina
 
       def action_methods
         @@action_methods = begin
-          methods = (api_actions + public_instance_methods(true) -
-            internal_methods +
-            public_instance_methods(false)).uniq.map { |x| x.to_s } -
-            hidden_actions.to_a
-          Set.new(methods.reject { |method| method =~ /_one_time_conditions/ })
-        end
+                             methods = (api_actions + public_instance_methods(true) -
+                                        internal_methods +
+                                        public_instance_methods(false)).uniq.map { |x| x.to_s } -
+                             hidden_actions.to_a
+                             Set.new(methods.reject { |method| method =~ /_one_time_conditions/ })
+                           end
       end
 
       # 所有支持的 API 列表

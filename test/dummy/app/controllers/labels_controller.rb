@@ -8,4 +8,19 @@ class LabelsController < PostsController
   } do
     render json: []
   end
+
+  define_action :show, {
+    name: 'label id show',
+    params: {
+      type: 'object',
+      properties: {
+        id: { type: 'string' }
+      }
+    },
+    return: {
+    }
+  } do
+    render json: { user: current_user }
+    return
+  end
 end

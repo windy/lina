@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:index, :show, :update] do
-    resources :labels, only: [:index]
+    resources :labels, only: [:index, :show]
   end
   resources :desks, only: [:index, :show, :update] do
     collection do
