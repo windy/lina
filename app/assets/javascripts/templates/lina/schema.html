@@ -68,12 +68,20 @@
 	      </td>
 	      <td>{{ value.type }}</td>
 	      <td class='more-info' ng-if='hasMoreInfo(value)'>{{ moreInfo(value) }}</td>
-	      <td class='more-info-array' ng-if='! hasMoreInfo(value)'>
+	      <td class='more-info-array' ng-if='valueIsArray(value)'>
           <div>
           	Array Items:
           </div>
           <div class="sub-json-schema">
             <json-schema schema='value.items'></json-schema>
+          </div>
+        </td>
+	      <td class='more-info-object' ng-if='valueIsObject(value)'>
+          <div>
+          	Object Item:
+          </div>
+          <div class="sub-json-schema">
+            <json-schema schema='value'></json-schema>
           </div>
         </td>
 	      <td class='description'>{{ value.description }}</td>

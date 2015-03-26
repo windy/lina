@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   mount Lina::Engine => '/lina'
 
+  resources :nested_objects, only: [:index]
+
   resources :arrays, only: [:index] do
     collection do
       get :string

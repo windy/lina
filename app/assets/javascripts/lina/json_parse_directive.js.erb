@@ -92,7 +92,15 @@ app.directive('jsonSchema', [ 'RecursionHelper', function(RecursionHelper){
     }
 
     $scope.hasMoreInfo = function(value){
-      return value.type !== 'array'
+      return (! $scope.valueIsArray(value)) && (! $scope.valueIsObject(value));
+    }
+
+    $scope.valueIsArray = function(value){
+      return value.type === 'array';
+    }
+
+    $scope.valueIsObject = function(value){
+      return !! value.properties;
     }
 
     // translate { '$ref': '#/definitions/xx' } to real hash
