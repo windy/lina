@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lina (0.0.3)
+    lina (0.0.4)
       angularjs-rails
       bootstrap-sass
       i18n
