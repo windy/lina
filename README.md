@@ -231,6 +231,8 @@ end
 
 更复杂的版本号需求, 可参考 [stack overflow 讨论](http://stackoverflow.com/questions/9627546/api-versioning-for-rails-routes/9627796)
 
+一个非常好的例子: [rubygems.org 路由源码](https://github.com/rubygems/rubygems.org/blob/master/config/routes.rb)
+
 ### 权限与认证
 
 `Lina` 为了保持简洁, 并不提供这部分的支持, 但整合非常容易.
