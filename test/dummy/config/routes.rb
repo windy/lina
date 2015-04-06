@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   mount Lina::Engine => '/lina'
 
+  resources :upload_files, only: [:create]
+
   resources :nested_objects, only: [:index]
 
   resources :arrays, only: [:index] do
