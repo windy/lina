@@ -114,7 +114,7 @@ class UsersController < Lina::ApplicationController
   } do
     # 像 Rails 一样获取 params
     @user = User.find(params[:id])
-    render json: { name: @uesr.name, id: @user.id }
+    render json: { name: @user.name, id: @user.id }
   end
 end
 ```
