@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass-rails'
   s.add_dependency 'bootstrap-sass'
   s.add_dependency 'jbuilder'
-  s.add_dependency 'angularjs-rails'
+  s.add_dependency 'angularjs-rails', '>= 1.2.0'
   s.add_dependency 'underscore-rails'
   s.add_dependency 'i18n'
 
